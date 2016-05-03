@@ -10,7 +10,7 @@
 ## What the Student Already Knows
 A student should already understand the concept of variables, constants, Int, String, Bool, Array, Dictionary and functions but not Tuples.
 
-## Outline/ Nots
+## Outline/ Notes
 
 * Start with the known- students know how to iterate over arrays. Show an example of iterating over an array. 
     * Present some real world problem such as, “If you have a dictionary where the keys represent the seasons and the values represent your favorite color associated with that season, is there an easy way to print out a list that for each sentence and color that says “In the {season} my favorite color is {color}.”
