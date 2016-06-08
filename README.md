@@ -46,9 +46,9 @@ for movie in myFavoriteStarWarsFilms {
     print("I love \(movie).")
 }
 
-// I love Star Wars: Episode I.
-// I love Star Wars Episode II.
-// I love Star Wars: Episode III.
+// I love Star Wars - Episode I.
+// I love Star Wars - Episode II.
+// I love Star Wars - Episode III.
 ```
 
 * Then showing them something like this:
