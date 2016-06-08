@@ -67,7 +67,7 @@ let favoriteDirectorAndTheirFilm = [
     - If you have a better example feel free to use it, but always aim for a real world example. And you can use that example throughout the rest of your reading and/or use other new examples. 
     * The answer is tuples and this sets the stage for writing the content that covers your learning objectives above.--- You can iterate over the key-value pairs in a dictionary with a for-in loop. Each item in the dictionary is returned as a (key, value) tuple. Explain how you can decompose the tuple’s members into temporary constants as part of the iteration.
     
-```
+```swift
 let seasonFavColors = [
     "Winter": "White",
     "Spring": "Green",
