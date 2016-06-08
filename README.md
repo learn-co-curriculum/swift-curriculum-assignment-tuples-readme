@@ -37,9 +37,9 @@
 
 ```swift
 let myFavoriteStarWarsFilms = [
-    "Star Wars: Episode I",
-    "Star Wars Episode II",
-    "Star Wars: Episode III"
+    "Star Wars - Episode I",
+    "Star Wars - Episode II",
+    "Star Wars - Episode III"
 ]
 
 for movie in myFavoriteStarWarsFilms {
@@ -61,7 +61,7 @@ let favoriteDirectorAndTheirFilm = [
 ]
 ```
 
-* Now, posing the question to the student... what happens if we iterate over this variable like we did with the `myFavoriteStarWarsFilms` array?
+* Now, posing the question to the student... what happens if we iterate over the `favoriteDirectorAndTheirFilm` variable which is a dictionary of type [`String`: `String`] like we did with the `myFavoriteStarWarsFilms` array?
 
 * Present some real world problem such as, “If you have a dictionary where the keys represent the seasons and the values represent your favorite color associated with that season, is there an easy way to print out a list that for each sentence and color that says “In the {season} my favorite color is {color}.”
     - If you have a better example feel free to use it, but always aim for a real world example. And you can use that example throughout the rest of your reading and/or use other new examples. 
