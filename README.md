@@ -1,83 +1,170 @@
 # Tuples 
 
-![HelpMe](http://65.media.tumblr.com/tumblr_lfsqif5W2Z1qe1wk7o1_500.jpg)
+## Understanding Tuples
 
-> Help me, Obi-Wan Kenobi. You are my only hope. 
+Imagine that you are planning on hosting a Game of Thrones viewing party! You want to make sure all your guests have whatever foods and beverages they like most. So, you of course need to make a grocery list. There's a lot of different foods and beverages that all your guests may want, and you want to keep track of how much to get
 
-## Learning Objectives - Students will be able to.. 
-* Describe a tuple as being a type that groups multiple values into a single compound value.
-* Explain that values within a tuple can be of any type and do not have to be of the same type as each other.
-* Iterate over the key-value pairs in a dictionary where each item is returned as a (key, value) tuple.
-* Create a tuple and name the individual elements
+## Tuples as a Compound Type
 
-
-## What the Student Already Knows
-* Create variables and constants
-* Is familiar with type annotations, type inference and string interpolation.
-* Can create functions with return types.
-* Is familiar with the String, Int, Double, and Bool type.
-* Can perform arithmetic operations on Int and Double.
-* Understands if and else clause statements.
-* Can create and use Arrays.
-* Can iterate over an Array using a for-in loop.
-* Can iterate over an Array calling enumerate().
-* Work with the following methods on arrays:
-	* append()
-	* insert(_:atIndex:)
-	* removeAtIndex()
-	* subscript syntax with arrays
-	* count
-	* isEmpty
-	* Optionals
-
-## Outline/ Notes
-
-* Start with the known- students know how to iterate over arrays. Show an example of iterating over an array. 
-* Before diving into an explicit definition of what a tuple is, it's important for the student to understand the problem they are solving. This can be done by providing a real world example/metaphor they can relate to... or if it's showing them code, it's showing them something they are aware of first.
+We already know that we can iterate over arrays:
 
 ```swift
-let myFavoriteStarWarsFilms = [
-    "Star Wars - Episode I",
-    "Star Wars - Episode II",
-    "Star Wars - Episode III"
+let favorite_candies = [
+    "Skittles",
+    "Starbursts",
+    "Reeses Pieces"
 ]
 
-for movie in myFavoriteStarWarsFilms {
-    print("I love \(movie).")
+for favorite_candy in favorite_candies {
+    print("\(favorite_candy). Yum!")
 }
 
-// I love Star Wars - Episode I.
-// I love Star Wars - Episode II.
-// I love Star Wars - Episode III.
+// Skittles. Yum!
+// Starbursts. Yum!
+// Reeses Pieces. Yum!
 ```
 
-* Then showing them something like this:
+This is useful and delicious, but do we want 1 Skittle, or a 1000? With tuples, we can keep track quite a bit better. Let's ask our guests what they want. We'll define three basic classes, GoTSansa, GoTTyrion, and GoTSandor.
 
 ```swift
-let favoriteDirectorAndTheirFilm = [
-    "George Lucas": "Star Wars: Episode I",
-    "Martin Brest": "Gigli",
-    "Andy Fickman": "Paul Blart: Mall Cop 2"
-]
-```
+class GoTSansa
+{
+    let grocery = "Lemoncake"
+    let amount = 2
 
-* Now, posing the question to the student... what happens if we iterate over the `favoriteDirectorAndTheirFilm` variable which is a dictionary of type [`String`: `String`] like we did with the `myFavoriteStarWarsFilms` array?
+    func wants() -> (food: String, amount: Int)
+    {
+        return (food, amount)
+    }
+}
 
-* Present some real world problem such as, “If you have a dictionary where the keys represent the seasons and the values represent your favorite color associated with that season, is there an easy way to print out a list that for each sentence and color that says “In the {season} my favorite color is {color}.”
-    - If you have a better example feel free to use it, but always aim for a real world example. And you can use that example throughout the rest of your reading and/or use other new examples. 
-    * The answer is tuples and this sets the stage for writing the content that covers your learning objectives above.--- You can iterate over the key-value pairs in a dictionary with a for-in loop. Each item in the dictionary is returned as a (key, value) tuple. Explain how you can decompose the tuple’s members into temporary constants as part of the iteration.
-    
-```swift
-let seasonFavColors = [
-    "Winter": "White",
-    "Spring": "Green",
-    "Summer": "Blue",
-    "Fall": "Orange"
-]
-for (season, color) in seasonFavColors {
-   			 print("In the \(season), my favorite color is \(color)")
+class GoTTyrion
+{
+    let grocery = "Wine"
+    let amount = 3
+
+    func wants() -> (grocery: String, amount: Int)
+    {
+        return (grocery, amount)
+    }
+}
+
+class GoTSandor
+{
+    let grocery = "Chicken"
+    let amount = 5
+
+    func wants() -> (grocery: String, amount: Int)
+    {
+        return (grocery, amount)
+    }
 }
 ```
 
-* Think about why you would want to create you own tuple. (Typically it would be when you want to return multiple types from a function. Try to be creative and think of a concrete example.) This sets the stage for explaining how to create a tuple. Create a tuple where they name the individual elements when it is defined.
-    
+Each of these classes will return a tuple when their respective wants() function is called. The tuple is a combination of the grocery and the amount of the grocery they want.
+
+Now, let's put this together to make our grocery list.
+
+```swift
+
+//initialize our class instances
+let sansa = GoTSansa()
+let tyrion = GotTyrion()
+let the_hound = GoTSandor()
+
+//initialize an array of strings to represent our grocery list
+var grocery_list = [String]()
+
+//this function will return a compound type, a tuple, with a grocery item and the amount of the item to get
+let sansa_grocery_tuple = sansa.wants()
+
+//get the amount from the tuple - you can index an item with "dot syntax" like so!
+let sansa_amount = sansa_grocery_tuple.amount
+
+//get the specific item from the tuple
+let sansa_grocery = sansa_grocery_tuple.grocery
+
+//add to our grocery list the amount Sansa wants
+for i:Int in 0..sansa_amount
+{
+    grocery_list.append(sansa_grocery)
+    print("adding \(sansa_grocery) for Sansa")
+}
+
+//Prints:
+//adding Lemoncake for Sansa
+//adding Lemoncake for Sansa
+
+//now, let's do the same for our other two characters!
+
+let tyrion_grocery_tuple = tyrion.wants()
+
+let tyrion_amount = tyrion_grocery_tuple.amount
+
+let tyrion_grocery = tyrion_grocery_tuple.grocery
+
+//add to our grocery list the amount Tyrion wants
+for i:Int in 0..tyrion_amount
+{
+    grocery_list.append(tyrion_grocery)
+    print("adding \(tyrion_grocery) for Tyrion")
+}
+
+//Prints:
+//adding Wine for Tyrion
+//adding Wine for Tyrion
+//adding Wine for Tyrion
+
+let hound_grocery_tuple = the_hound.wants()
+
+let hound_amount = hound_grocery_tuple.amount
+
+let hound_grocery = hound_grocery_tuple.grocery
+
+//add to our grocery list the amount Tyrion wants
+for i:Int in 0..hound_amount
+{
+    grocery_list.append(hound_grocery)
+    print("adding \(hound_grocery) for the Hound")
+}
+
+//Prints:
+//adding Chicken for the Hound
+//adding Chicken for the Hound
+//adding Chicken for the Hound
+//adding Chicken for the Hound
+//adding Chicken for the Hound
+
+```
+
+Now, our grocery list will be all set and when we're at the store.
+
+## But, wait, there's more
+
+I think most of us write our grocery lists with the amount of the grocery, instead of writing each down multiple times. Tuples can be a great help here too.
+
+We can define tuples not just as something returned from a function, but in the wild too.
+
+```swift
+
+let list = ["Chicken": 5, "Wine": 3, "Lemoncake": 2]
+
+```
+
+That's quite a bit leaner, don't you think? To finish it off, print our nice tuple array.
+
+```swift
+
+for grocery, amount in list
+{
+    print("We need to get \(amount) \(grocery)s")
+}
+
+//Prints:
+//We need to get 5 Chickens
+//We need to get 3 Wines
+//We need to get 2 Lemoncakes
+
+``` 
+
+Lastly, make sure Tyrion doesn't drive!
