@@ -61,7 +61,7 @@ class GoTSandor
 }
 ```
 
-Each of these classes will return a tuple when their respecrtive wants() function is called. The tuple is a combination of the grocery and the amount of the grocery they want.
+Each of these classes will return a tuple when their respective wants() function is called. The tuple is a combination of the grocery and the amount of the grocery they want.
 
 Now, let's put this together to make our grocery list.
 
