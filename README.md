@@ -75,7 +75,7 @@ let seasonFavColors = [
     "Fall": "Orange"
 ]
 for (season, color) in seasonFavColors {
-   			 print("In the \(season), my favorite color is \(color)")
+    print("In the \(season), my favorite color is \(color)")
 }
 ```
 
